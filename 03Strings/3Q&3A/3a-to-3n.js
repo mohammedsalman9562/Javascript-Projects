@@ -47,4 +47,5 @@
 // 3n. Create fourth line of text: 'Estimated tax (10%): $6.79' (use math and Math.round(...); 
 // to calculate the exact number).
 
+
 // Finish: change the cart back to 1 basketball, 1 t-shirt (both free shipping).
