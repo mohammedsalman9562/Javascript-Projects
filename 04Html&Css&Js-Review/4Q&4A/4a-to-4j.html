@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4A to 4N Answer of Question Html and Css and Js Review</title>
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg"
+    />
+    <link rel="stylesheet" href="./4a-to-4j.css" />
+  </head>
+  <body>
+    <div class="page-container">
+      <div class="order-summary">
+        <div class="left">
+          <h2>E-Commerce</h2>
+
+          <div class="text-content">
+            <div class="dropdown">
+              <div class="dropdown-button">Select Item</div>
+              <div class="dropdown-content">
+                <div class="item">
+                  <img
+                    src="https://fullyfilmy.in/cdn/shop/products/New-Mockups---no-hanger---TShirt-Yellow.jpg?v=1747992993&width=800"
+                    alt="RRR T-shirt"
+                    width="60"
+                  />
+                  <div class="details">
+                    <div>RRR T-shirt</div>
+                    <div class="amount">$11.79</div>
+                  </div>
+                  <button onclick="addItem(this)">Add</button>
+                </div>
+
+                <div class="item">
+                  <img
+                    src="https://www.stonedsanta.in/wp-content/uploads/2019/07/Inferno-Customized-Shoes.jpg"
+                    alt="RRR T-shirt"
+                    width="60"
+                  />
+                  <div class="details">
+                    <div>Shoes</div>
+                    <div class="amount">$48.79</div>
+                  </div>
+                  <button onclick="addItem(this)">Add</button>
+                </div>
+
+                <div class="item">
+                  <img
+                    src="https://5.imimg.com/data5/SELLER/Default/2024/10/456041459/MW/JR/GP/109105468/kps-double-sided-shoe-cleaner-polish-shoe-polish-sponge-shoe-wax-brush-1000x1000.jpg"
+                    alt="RRR T-shirt"
+                    width="60"
+                  />
+                  <div class="details">
+                    <div>Shoe Polisher</div>
+                    <div class="amount">$4.79</div>
+                  </div>
+                  <button onclick="addItem(this)">Add</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="menuList"></div>
+          <button class="buy" onclick="buyProduct()">Buy Product</button>
+          <p
+            id="purchase-message"
+            style="color: green; font-weight: bold; display: none"
+          ></p>
+        </div>
+        <div class="right">
+          <h1>E-commerce Delivery</h1>
+          <div class="list">
+            <p id="items-count">
+              Items (0):
+              <span
+                ><strong>$<span id="item-total">0.00</span></strong></span
+              >
+            </p>
+            <p>
+              Shipping &amp; handling:
+              <span
+                ><strong>$<span id="shipping">3.99</span></strong></span
+              >
+            </p>
+            <hr class="total" />
+            <p>
+              Total before tax:
+              <span
+                ><strong>$<span id="before-tax">0.00</span></strong></span
+              >
+            </p>
+            <p>
+              Estimated tax (10%):
+              <span
+                ><strong>$<span id="tax">0.00</span></strong></span
+              >
+            </p>
+          </div>
+          <hr />
+          <h2>
+            Total Cost: $<span class="order-total" id="order-total">0.00</span>
+          </h2>
+        </div>
+      </div>
+    </div>
+
+    <script src="./4a-to-4j.js"></script>
+  </body>
+</html>
