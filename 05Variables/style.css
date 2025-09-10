@@ -1,0 +1,108 @@
+:root{
+      --bg:linear-gradient(135deg,#1e3c72,#2a5298);
+      --panel:rgba(255,255,255,0.1);
+      --accent:#ffb703;
+      --muted:#e0e0e0;
+      --btn:rgba(255,255,255,0.15);
+      --btn-hover:rgba(255,255,255,0.25);
+      --shadow:0 8px 30px rgba(0,0,0,0.4);
+      font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:var(--bg);
+      padding:16px;
+      color:white;
+    }
+
+    .calculator{
+      width:100%;
+      max-width:420px;
+      background:var(--panel);
+      backdrop-filter: blur(20px);
+      border-radius:20px;
+      box-shadow:var(--shadow);
+      padding:20px;
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+      border:1px solid rgba(255,255,255,0.2);
+      animation:fadeIn 0.6s ease;
+    }
+
+    @keyframes fadeIn {
+      from {opacity:0; transform:scale(0.95);}
+      to {opacity:1; transform:scale(1);}
+    }
+
+    .screen{
+      background:rgba(0,0,0,0.25);
+      border-radius:12px;
+      padding:16px;
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      min-height:88px;
+      color:white;
+      box-shadow:inset 0 2px 8px rgba(0,0,0,0.4);
+    }
+
+    .history{
+      font-size:14px;
+      color:var(--muted);
+      text-align:right;
+      opacity:0.8;
+    }
+
+    .output{
+      font-size:32px;
+      text-align:right;
+      font-weight:600;
+      word-break:break-all;
+    }
+
+    .pad{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:12px;
+    }
+
+    button.key{
+      border:0;
+      border-radius:14px;
+      padding:18px 14px;
+      font-size:18px;
+      background:var(--btn);
+      color:white;
+      cursor:pointer;
+      user-select:none;
+      transition:all .2s ease;
+      box-shadow:0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    button.key:hover{background:var(--btn-hover)}
+    button.key:active{transform:scale(0.95)}
+
+    .key.operator{background:var(--accent); color:black; font-weight:700;}
+    .key.wide{grid-column:span 2}
+    .key.secondary{background:rgba(255,255,255,0.05); color:var(--muted); box-shadow:none}
+
+    .controls{display:flex; gap:8px; flex-wrap:wrap;}
+
+    @media (max-width:600px){
+      .calculator{padding:16px; border-radius:16px}
+      .output{font-size:26px}
+      .history{font-size:12px}
+      button.key{padding:14px 10px; font-size:16px}
+    }
+
+    @media (max-width:400px){
+      .pad{gap:8px}
+      button.key{padding:12px 8px; font-size:14px; border-radius:10px}
+      .output{font-size:20px}
+    }
