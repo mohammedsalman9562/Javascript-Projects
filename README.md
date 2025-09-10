@@ -1,5 +1,9 @@
 # Javascript-Projects
 
+Normal Calculator 
+
+https://mohammedsalman9562.github.io/Javascript-Projects/05Variables/
+
 E-commerce Calculator
 
 https://mohammedsalman9562.github.io/Javascript-Projects/04Html&Css&Js-Review/4Q&4A/4a-to-4j.html
