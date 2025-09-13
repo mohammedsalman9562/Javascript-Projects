@@ -88,62 +88,75 @@
     result: document.querySelector(".js-result"),
     moves: document.querySelector(".js-moves-chosen"),
     score: document.querySelector(".js-score"),
+    buttons: document.querySelectorAll(".move-button"),
+    resetBtn: document.querySelector(".reset-score-button"),
   };
 
-  const savedScore = () => {
+  const saveScore = () => {
     localStorage.setItem("score", JSON.stringify(score));
   };
 
   const updateScore = () => {
-    elements.score.textContent = `
-          Wins: ${score.wins},
-          Losses: ${score.losses},
-          Ties: ${score.ties}`;
+    elements.score.textContent = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
   };
 
   const randomMove = () => {
-    ["rock", "paper", "scissors"][(Math.random() * 3) | 0];
+    const moves = ["rock", "paper", "scissors"];
+    return moves[(Math.random() * 3) | 0];
   };
 
   const showMoves = (player, comp) => {
     elements.moves.innerHTML = `
-              You <img src="images/${player}-emoji.png" class="move-icon">
-              <img src="images/${comp}-emoji.png" class="move-icon"> Computer
-              `;
+      You <img src="images/${player}-emoji.png" class="move-icon">
+      <img src="images/${comp}-emoji.png" class="move-icon"> Computer
+    `;
   };
 
   function play(playerMove) {
-    const comp = randMove();
+    const comp = randomMove();
 
     if (playerMove === comp) {
-      els.result.textContent = "Tie.";
+      elements.result.textContent = "Tie.";
+      elements.result.style.color = "gray";
       score.ties++;
     } else if (
       (playerMove === "rock" && comp === "scissors") ||
       (playerMove === "paper" && comp === "rock") ||
       (playerMove === "scissors" && comp === "paper")
     ) {
-      els.result.textContent = "You win.";
+      elements.result.textContent = "You win!";
+      elements.result.style.color = "green";
       score.wins++;
     } else {
-      els.result.textContent = "You lose.";
+      elements.result.textContent = "You lose.";
+      elements.result.style.color = "red";
       score.losses++;
     }
 
     showMoves(playerMove, comp);
     updateScore();
-    save();
+    saveScore();
   }
 
   function reset() {
     score = { wins: 0, losses: 0, ties: 0 };
-    els.result.textContent = "Score reset!";
-    els.moves.textContent = "";
+    elements.result.textContent = "Score reset!";
+    elements.result.style.color = "black";
+    elements.moves.textContent = "";
     updateScore();
     localStorage.removeItem("score");
   }
 
+  // Event listeners
+  elements.buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      play(btn.dataset.move);
+    });
+  });
+
+  elements.resetBtn.addEventListener("click", reset);
+
+  // Initialize score
   updateScore();
-  window.makeMove = play;
-  window.resetScore = reset;
 })();
+

@@ -41,7 +41,7 @@
         padding: 8px 15px;
         cursor: pointer;
       }
-      .containers{
+      .container{
         display: flex;
         flex-direction: column;
         justify-content: center;
